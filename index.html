@@ -1,0 +1,213 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Surpresa 💗</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffdce8;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Título */
+        .titulo {
+            position: absolute;
+            top: 45px;
+            color: #d94f83;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        /* Botão */
+        .surpresa {
+            width: 230px;
+            height: 70px;
+            border: none;
+            border-radius: 50px;
+            background: #e95f91;
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(217, 79, 131, 0.25);
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .surpresa:hover {
+            transform: scale(1.06);
+        }
+
+        .surpresa:active {
+            transform: scale(0.96);
+        }
+
+        /* Mensagem */
+        .mensagem {
+            position: absolute;
+            z-index: 20;
+            width: min(90%, 500px);
+            padding: 40px 25px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(190, 70, 110, 0.25);
+
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+            transition: 0.5s ease;
+        }
+
+        .mensagem.aberta {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .mensagem .coracao {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .mensagem p {
+            color: #d94f83;
+            font-size: 21px;
+            line-height: 1.6;
+        }
+
+        .mensagem .assinatura {
+            margin-top: 20px;
+            font-size: 17px;
+            color: #b84370;
+        }
+
+        /* Corações voando */
+        .heart {
+            position: absolute;
+            bottom: -60px;
+            font-size: 28px;
+            animation: subir linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.8;
+            }
+
+            85% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-115vh) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        .heart:nth-child(1) {
+            left: 8%;
+            animation-duration: 8s;
+        }
+
+        .heart:nth-child(2) {
+            left: 22%;
+            animation-duration: 10s;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 40%;
+            animation-duration: 7s;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(4) {
+            left: 60%;
+            animation-duration: 9s;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(5) {
+            left: 78%;
+            animation-duration: 8s;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(6) {
+            left: 92%;
+            animation-duration: 11s;
+            animation-delay: 5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="titulo">Surpresa 💗</div>
+
+    <!-- Corações -->
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+
+    <!-- Botão -->
+    <button class="surpresa" id="botao">
+        Clique aqui 💗
+    </button>
+
+    <!-- Mensagem -->
+    <div class="mensagem" id="mensagem">
+
+        <div class="coracao">💗</div>
+
+        <p>
+            Oi amor,<br><br>
+            só pra lembrar que você é perfeita,<br>
+            saudades...
+        </p>
+
+        <div class="assinatura">
+            De Guilherme 💕<br>
+            Para Thayssa
+        </div>
+
+    </div>
+
+    <script>
+        const botao = document.getElementById("botao");
+        const mensagem = document.getElementById("mensagem");
+
+        botao.addEventListener("click", () => {
+            botao.style.display = "none";
+            mensagem.classList.add("aberta");
+        });
+    </script>
+
+</body>
+</html>
+```
